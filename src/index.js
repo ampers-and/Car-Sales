@@ -8,7 +8,7 @@ import './styles.scss';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-import carSalesReducer from './reducers/carSalesReducer';
+import {carSalesReducer} from './reducers/carSalesReducer';
 
 const store = createStore(carSalesReducer);
 
