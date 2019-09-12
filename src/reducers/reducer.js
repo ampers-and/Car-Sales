@@ -1,8 +1,6 @@
 import { ADD_FEATURE, REMOVE_FEATURE } from '../actions/actions';
 
-// import {state} from '../App'
-
-export const initialState = {
+const initialState = {
     additionalPrice: 0,
     car: {
       price: 26395,
