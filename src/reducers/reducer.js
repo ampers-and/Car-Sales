@@ -45,13 +45,16 @@ export const reducer = (state = initialState, action) => {
                 car:{
                     ...state.car,
                     features: 
-                        state.features.filter(item => item.id !== action.payload.id)
+                        state.car.features.filter(item => item.id !== action.payload.id)
                 },
                 store: [
                     ...state.store,
                     action.payload
                 ]
         }
+
+        default:
+            return state;
 
     }
 }
