@@ -19,7 +19,7 @@ export const initialState = {
     ]
   };
 
-export const carSalesReducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
 
     // return state;
     console.log('state:', state, 'action:', action);
@@ -29,20 +29,31 @@ export const carSalesReducer = (state = initialState, action) => {
         case ADD_FEATURE :
             return{
                 ...state,
-                features:[
-                    ...state.features,
-                    action.payload
-                ]
+                additionalPrice: state.additionalPrice + action.payload.price,
+                car:{
+                    ...state.car, 
+                    features:[
+                        ...state.car.features,
+                        action.payload
+                    ]
+                },
+                store: state.store.filter( item => item.id !== action.payload.id)
             }
 
         case REMOVE_FEATURE :
             return{
                 ...state,
-                features: 
-                    state.features.filter(item => {
-                        return item !== action.payload;
-                    })
-            }
-    }
+                additionalPrice: state.additionalPrice - action.payload.price,
+                car:{
+                    ...state.car,
+                    features: 
+                        state.features.filter(item => item.id !== action.payload.id)
+                },
+                store: [
+                    ...state.store,
+                    action.payload
+                ]
+        }
 
+    }
 }

@@ -8,9 +8,10 @@ import './styles.scss';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-import {carSalesReducer} from './reducers/carSalesReducer';
+import {reducer} from './reducers/reducer';
 
-const store = createStore(carSalesReducer);
+const store = createStore(reducer);
+console.log(store);
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(
